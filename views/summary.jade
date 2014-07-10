@@ -1,0 +1,59 @@
+extends layout
+
+block content
+    nav.navbar.navbar-default.navbar-fixed-top
+        .container-fluid
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='#') Project Raaha
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='#') Home
+                li
+                  a(href='#') Single Page View
+                li.dropdown.active
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | Nightly Summary
+                    span.caret
+                  ul.dropdown-menu(role='menu')
+                    li
+                      a(href='/summary/1') Night One
+                    li
+                      a(href='/summary/2') Night Two
+                    li
+                      a(href='/summary/3') Night Three
+                    li
+                      a(href='/summary/4') Night Four
+                    li
+                      a(href='/summary/5') Night Five
+                    li
+                      a(href='/summary/6') Night Six
+                    li
+                      a(href='/summary/7') Night Seven
+                    li
+                      a(href='/summary/8') Night Eight
+                    li
+                      a(href='/summary/9') Night Nine
+                    li
+                      a(href='/summary/10') Night Ten
+                    li
+                      a(href='/summary/11') Night Eleven
+                    li.divider
+                    li
+                      a(href='#') View All In Single Page
+    .container#main
+        .row
+          h1= title
+        .row
+          h2= header
+        .row
+          i= desc
+        .row
+          h4.linebreaks= content
+    script(src='/javascripts/jquery-1.11.1.min.js')
+    script(src='/javascripts/bootstrap.min.js')

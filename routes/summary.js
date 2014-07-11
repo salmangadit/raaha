@@ -3,9 +3,14 @@ var router = express.Router();
 var data = require('../data/data');
 
 
-router.get('/', function(req, res) {
-	console.log(req.params.id);
-	res.send('test0');
+router.get('/all', function(req, res) {
+	var allData = [];
+
+	for (var i=1; i<=11; i++){
+		allData.push(data[i]);
+	}
+
+	res.render('single', { data: allData });
 });
 
 router.get('/:id', function(req, res) {

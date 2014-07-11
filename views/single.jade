@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+    nav.navbar.navbar-default.navbar-fixed-top
         .container-fluid
             .navbar-header
               button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
@@ -12,9 +12,9 @@ block content
               a.navbar-brand(href='/') Project Raaha
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               ul.nav.navbar-nav
-                li.active
-                  a(href='/') Home
                 li
+                  a(href='/') Home
+                li.active
                   a(href='/summary/all') Single Page View
                 li.dropdown
                   a.dropdown-toggle(href='#', data-toggle='dropdown')
@@ -49,27 +49,13 @@ block content
     .container#main
         .row
           h1= title
-        .row
-          h2 Summary
-        .row
-          h4 'Raaha' (also 'rauh' or 'raha') is the root word of the word Tharaweeh which are the extra prayers performed by Muslims at night in the month of Ramadan. The word means to 'rest' or 'relax', as it is customary to rest in the midst of these long voluntary prayers.
-          h4 It is often common for many mosques conducting Tharaweeh prayers to conduct it reciting the Qur'an to completion before the 27th night. However, most people do not know the meaning of what has been recited or prayed that night, or even which portion of the Qur'an it was from. Use the menu above or buttons below to begin.
-
-          h5 Project Raaha has a very simple purpose - to summarise the sections of the Qur'an done (commonly) for each night of Tharaweeh in Ramadan and the meaning behind the chapter. In this simple website, you will find the summary for each night of Tharaweeh. This is a work-in-progress.
-          h5 Please feel free to fork the link from the footer below for edits and additions. Have a blessed Ramadan. Insha Allah May Allah bless us all!
-
-          br
-
-        .row.pagination-cnetered
-          a.btn.btn-primary.btn-lg(href="/summary/all") View all summaries in single page
-          a.btn.btn-info.btn-lg(href="/summary/1") View Summary for Night One
-        
+        each item, i in data
+          .row
+            h2= item.title
+          .row
+            i= item.description
+          .row
+            h4.linebreaks= item.content
         br
-        br
-        br
-
-        h6 Project Raaha is an open source project. Please feel free to fork and suggest edits and issues at 
-          a(href="https://github.com/salmangadit/raaha") https://github.com/salmangadit/raaha
-        
     script(src='/javascripts/jquery-1.11.1.min.js')
     script(src='/javascripts/bootstrap.min.js')
